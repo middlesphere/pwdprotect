@@ -10,7 +10,7 @@ Add dependency to your project.clj file.
 [com.middlesphere/pwdprotect "0.1"]
 ```
 
-Also, BouncySastle crypto library should be in classpath.
+Also, BouncyCastle crypto library should be in classpath.
 You can add it as development dependency in your project.clj:
 ```
             :profiles {
