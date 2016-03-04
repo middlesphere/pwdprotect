@@ -17,8 +17,13 @@
           enc-s (pwdprotect.core/encrypt-passwords-in-file test-file-name "secret12")
           e (clojure.edn/read-string (slurp test-file-name))
           _ (println "encrypted passwords:\npassw1" (:param1 e) "\npassw2" (:param3 e))
-          passw1 (pwdprotect.core/decrypt-password (e :param1) "secret12")
-          passw2 (pwdprotect.core/decrypt-password (e :param3) "secret12")
+
+          plain-content (pwdprotect.core/decrypt-passwords-in-file test-file-name "secret12")
+          _ (println "file content:\n" plain-content )
+
+          edn-content (clojure.edn/read-string plain-content)
+          passw1 (edn-content :param1)
+          passw2 (edn-content :param3)
           _ (println "decrypted passwords:\npassw1" passw1 "\npassw2" passw2)]
       (clojure.java.io/delete-file test-file-name)
       (is (= passw1 "this is password1"))

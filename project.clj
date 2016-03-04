@@ -1,4 +1,4 @@
-(defproject com.middlesphere/pwdprotect "1.0.1"
+(defproject com.middlesphere/pwdprotect "2.0.0"
             :description "Password protection library. Hide sensitive information in your configs."
             :url "https://github.com/middlesphere/pwdprotect.git"
             :vendor "Middlesphere"
